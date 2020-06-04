@@ -24,13 +24,14 @@ vim_ins_mode="%F{green}%B𝓲 %f"
 vim_cmd_mode="%F{blue}%B𝓬 %f"
 vim_mode=$vim_ins_mode
 
+zle -A zle-keymap-select _lp_saved_zle-keymap-select
 function _lp_zle-keymap-select {
   vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
   zle reset-prompt
 }
 zle -N zle-keymap-select _lp_zle-keymap-select
 
-
+zle -A zle-line-finish _lp_saved_zle-line-finish
 function _lp_zle-line-finish {
   vim_mode=$vim_ins_mode
 }
