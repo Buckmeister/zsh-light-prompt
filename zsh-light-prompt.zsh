@@ -1,4 +1,8 @@
 # set up PROMPT and RPOMPT
+setopt prompt_subst
+autoload -Uz promptinit
+promptinit
+
 export PROMPT='%(?.%F{green} ✔ .%F{red} 𝙭 %?)%f %B%F{12}%1~%f%b %# '
 export RPROMPT='$vcs_info_msg_0_ ${vim_mode}'
 
