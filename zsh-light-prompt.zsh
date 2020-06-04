@@ -29,9 +29,9 @@ function _lp_zle-keymap-select {
   zle reset-prompt
 }
 
-zle -N zle-keymap-select _lp_zle-keymap-select
+zle -A zle-keymap-select _lp_zle-keymap-select
 
 function _lp_zle-line-finish {
   vim_mode=$vim_ins_mode
 }
-zle -N zle-line-finish _lp_zle-line-finish
+zle -A zle-line-finish _lp_zle-line-finish
