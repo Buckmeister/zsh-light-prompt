@@ -28,7 +28,7 @@ zle -A zle-keymap-select _lp_saved_zle-keymap-select
 function _lp_zle-keymap-select {
   vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
   zle reset-prompt
-  if (( ! ${+widgets[_lp_saved_zle-keymap-select]} )); then
+  if (( ${+widgets[_lp_saved_zle-keymap-select]} )); then
     zle _lp_saved_zle-keymap-select
   fi
 }
@@ -37,7 +37,7 @@ zle -N zle-keymap-select _lp_zle-keymap-select
 zle -A zle-line-finish _lp_saved_zle-line-finish
 function _lp_zle-line-finish {
   vim_mode=$vim_ins_mode
-  if (( ! ${+widgets[_lp_saved_zle-line-finish]} )); then
+  if (( ${+widgets[_lp_saved_zle-line-finish]} )); then
     zle _lp_saved_zle-line-finish
   fi
 }
